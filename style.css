@@ -1,0 +1,60 @@
+body {
+   
+}
+
+div  {
+    margin: auto;
+    width: 800px;
+    height: 200px;
+}
+
+textarea {
+    width: 800px;
+    height: 200px;
+    background-color: wheat;
+    
+}
+
+.keyboard {    
+    background-color: grey;
+    height: 260px;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.keyboard__line {    
+    height: 50px;
+    background: dimgray;
+    margin: 0px 10px 0px;
+    width: 780px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.keyboard__button {
+    width: 40px;
+    height: 40px;
+    background: lightblue;
+    cursor: pointer;
+    border-radius:3px ;
+    transition: border-radius 0.1s linear;
+    display:flex;
+}
+
+.keyboard__button:hover {
+    border-radius:10px;
+    background: lightseagreen;
+}
+
+.keyboard__button--mod1 {
+    width:100px;
+}
+.keyboard__button--mod2 {
+    width:60px;
+}
+.keyboard__button--space {
+    width: 280px;
+}
+ span {
+     margin:auto;
+     font-size: 20px;
+ }
