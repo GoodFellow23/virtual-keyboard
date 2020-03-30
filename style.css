@@ -40,8 +40,8 @@ textarea {
     display:flex;
 }
 
-.keyboard__button:hover {
-    border-radius:10px;
+.keyboard__button--mouseover {
+    border-radius:5px;
     background: lightseagreen;
 }
 
@@ -57,4 +57,7 @@ textarea {
  span {
      margin:auto;
      font-size: 20px;
+ }
+ .keyboard__button--pressed {
+    border-radius:20px;   
  }

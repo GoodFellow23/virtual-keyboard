@@ -47,3 +47,43 @@ let arrEngShift =
 "Ctrl", "Win", "Alt", "", "Alt", "Ctrl", "←", "↓", "→"];
 
 document.querySelectorAll('.keyboard__button').forEach((el,idx) => el.innerHTML = `<span>${arrEng[idx]}</span>`);
+document.onkeypress = (event) => {
+    console.log(event);
+    
+
+};
+keyboard.addEventListener('mouseover',(event) => {
+    if(event.target.classList.contains('keyboard__button')) {
+         event.target.classList.add('keyboard__button--mouseover');
+    }
+    if(event.target.tagName == "SPAN" )   {
+        event.target.parentElement.classList.add('keyboard__button--mouseover');
+    }
+});
+keyboard.addEventListener('mouseout',(event) => {
+    if(event.target.classList.contains('keyboard__button')) {
+         event.target.classList.remove('keyboard__button--mouseover');
+    } 
+    if(event.target.tagName == "SPAN" )   {
+        event.target.parentElement.classList.remove('keyboard__button--mouseover');
+    }  
+});
+//Click event here!))
+
+keyboard.addEventListener('mousedown',(event) => {
+    if(event.target.classList.contains('keyboard__button')) {
+         event.target.classList.add('keyboard__button--pressed');
+    } 
+    if(event.target.tagName == "SPAN" )   {
+        event.target.parentElement.classList.add('keyboard__button--pressed');
+    }  
+});
+
+keyboard.addEventListener('mouseup',(event) => {
+    if(event.target.classList.contains('keyboard__button')) {
+         event.target.classList.remove('keyboard__button--pressed');
+    } 
+    if(event.target.tagName == "SPAN" )   {
+        event.target.parentElement.classList.remove('keyboard__button--pressed');
+    }  
+});
