@@ -49,7 +49,7 @@ let arrEngShift =
 document.querySelectorAll('.keyboard__button').forEach((el,idx) => el.innerHTML = `<span>${arrEng[idx]}</span>`);
 document.onkeypress = (event) => {
     console.log(event);
-    
+    inputArea.value += event.key;
 
 };
 keyboard.addEventListener('mouseover',(event) => {
@@ -76,7 +76,8 @@ keyboard.addEventListener('mousedown',(event) => {
     } 
     if(event.target.tagName == "SPAN" )   {
         event.target.parentElement.classList.add('keyboard__button--pressed');
-    }  
+    }
+    inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
 });
 
 keyboard.addEventListener('mouseup',(event) => {
