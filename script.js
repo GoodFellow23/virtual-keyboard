@@ -116,7 +116,7 @@ document.onkeydown = (event) => {
     } else if(event.key === 'Control') {
 
     } else if(event.key === 'Enter') {
-
+        inputArea.value += '\n';
     } else if(event.key === 'Tab') {
 
     } else if(event.key === 'CapsLock') {
