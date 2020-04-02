@@ -113,8 +113,8 @@ document.onkeydown = (event) => {
 
     } else if(event.key === 'Meta') {
 
-    } else if(event.key === 'Control') {
-
+    } else if(event.key === ' ') {
+        inputArea.value += ' ';
     } else if(event.key === 'Enter') {
         
         inputArea.value += '\n';
@@ -214,6 +214,8 @@ keyboard.addEventListener('mousedown',(event) => {
     } else if(event.target.innerText === 'CapsLock') {
         count = (count == 0 || count == 2) ? (count + 1) : (count - 1);
         fillButtons();
+    } else if(event.target.innerText === '') {
+        inputArea.value += ' ';
     } else {
         inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
     }
