@@ -105,7 +105,7 @@ document.onkeydown = (event) => {
     if(event.key === 'Shift') {
         count = (count == 0 || count == 2) ? (count + 1) : (count - 1);
         fillButtons();
-    } else if(event.key === 'Backspace') {
+    } else if((event.key === 'Backspace')) {
         inputArea.value = inputArea.value.slice(0,-1);
     } else if(event.key === 'Delete') {
 
@@ -116,6 +116,7 @@ document.onkeydown = (event) => {
     } else if(event.key === 'Control') {
 
     } else if(event.key === 'Enter') {
+        
         inputArea.value += '\n';
     } else if(event.key === 'Tab') {
 
@@ -184,7 +185,7 @@ keyboard.addEventListener('mouseover',(event) => {
     }
     if(event.target.tagName == "SPAN" )   {
         event.target.parentElement.classList.add('keyboard__button--mouseover');
-    }
+    }    
 });
 keyboard.addEventListener('mouseout',(event) => {
     if(event.target.classList.contains('keyboard__button')) {
@@ -203,16 +204,34 @@ keyboard.addEventListener('mousedown',(event) => {
     if(event.target.tagName == "SPAN" ){
         event.target.parentElement.classList.add('keyboard__button--pressed');
     }
-    inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
+    if(event.target.innerText === 'Enter') {
+        inputArea.value += '\n';
+    } else if(event.target.innerText === 'Backspace') {
+        inputArea.value = inputArea.value.slice(0,-1);
+    } else if(event.target.innerText === 'Shift') {
+        count = (count == 0 || count == 2) ? (count + 1) : (count - 1);
+        fillButtons();
+    } else if(event.target.innerText === 'CapsLock') {
+        count = (count == 0 || count == 2) ? (count + 1) : (count - 1);
+        fillButtons();
+    } else {
+        inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
+    }
+    
+
 });
 
 keyboard.addEventListener('mouseup',(event) => {
-    if(event.target.classList.contains('keyboard__button')) {
-         event.target.classList.remove('keyboard__button--pressed');
-    } 
-    if(event.target.tagName == "SPAN" )   {
-        event.target.parentElement.classList.remove('keyboard__button--pressed');
-    }  
+    if(event.target.innerText === 'Shift') {
+        count = (count == 0 || count == 2) ? (count + 1) : (count - 1);
+        fillButtons();
+    }
+    document.querySelectorAll('.keyboard__button').forEach(el => {
+        el.classList.remove('keyboard__button--mouseover');
+        el.classList.remove('keyboard__button--pressed');
+        
+    });
+   
 });
 
 
