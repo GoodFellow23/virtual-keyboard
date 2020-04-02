@@ -217,7 +217,10 @@ keyboard.addEventListener('mousedown',(event) => {
     } else if(event.target.innerText === '') {
         inputArea.value += ' ';
     } else {
-        inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
+        if(document.querySelector('.keyboard__button--pressed>span')) {
+            inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
+        }
+        
     }
     
 
