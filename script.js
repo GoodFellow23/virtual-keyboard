@@ -106,7 +106,7 @@ document.onkeydown = (event) => {
         count = (count == 0 || count == 2) ? (count + 1) : (count - 1);
         fillButtons();
     } else if(event.key === 'Backspace') {
-
+        inputArea.value = inputArea.value.slice(0,-1);
     } else if(event.key === 'Delete') {
 
     } else if(event.key === 'Alt') {
