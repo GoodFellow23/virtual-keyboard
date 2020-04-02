@@ -34,24 +34,97 @@ document.querySelectorAll('.keyboard__line>div').forEach(el => el.classList.add(
 
 let arrEng = 
 ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
- "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\", "DEL",
- "Caps Lock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter",
+ "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\", "Delete",
+ "CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter",
  "Shift", "\\", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "↑", "Shift",
- "Ctrl", "Win", "Alt", "", "Alt", "Ctrl", "←", "↓", "→"];
+ "Ctrl", "Win", "Alt", " ", "Alt", "Ctrl", "←", "↓", "→"];
  
 let arrEngShift = 
 ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "Backspace",
-"Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}", "|", "DEL",
-"Caps Lock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", '"', "Enter",
-"Shift", "\\", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "↑", "Shift",
-"Ctrl", "Win", "Alt", "", "Alt", "Ctrl", "←", "↓", "→"];
+"Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}", "|", "Delete",
+"CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", '"', "Enter",
+"Shift", "\\", "Z", "X", "C", "V", "B", "N", "M", "Б", "Ю", ",", "↑", "Shift",
+"Ctrl", "Win", "Alt", " ", "Alt", "Ctrl", "←", "↓", "→"];
 
-document.querySelectorAll('.keyboard__button').forEach((el,idx) => el.innerHTML = `<span>${arrEng[idx]}</span>`);
-document.onkeypress = (event) => {
-    console.log(event);
-    inputArea.value += event.key;
+const fillButtons = (value) => {
+    document.querySelectorAll('.keyboard__button').forEach((el,idx) => {
+        el.innerHTML = `<span>${value[idx]}</span>`;
+        el.firstChild.id = `${value[idx]}`;
+    });
+}
+fillButtons(arrEng);
 
+document.onkeydown = (event) => {
+    document.querySelectorAll('.keyboard__button').forEach(el => {
+        if(event.key == el.firstChild.innerHTML) {
+            el.classList.add('keyboard__button--mouseover');
+            el.classList.add('keyboard__button--pressed');
+        } else if(event.key == 'Control' && el.firstChild.innerHTML == 'Ctrl') {
+            el.classList.add('keyboard__button--mouseover');
+            el.classList.add('keyboard__button--pressed');
+        }
+    });
+    console.log(event.key); 
+    if(event.key === 'Shift') {
+        fillButtons(arrEngShift);
+    } else if(event.key === 'Backspace') {
+
+    } else if(event.key === 'Delete') {
+
+    } else if(event.key === 'Alt') {
+
+    } else if(event.key === 'Control') {
+
+    } else if(event.key === 'Enter') {
+
+    } else if(event.key === 'Tab') {
+
+    } else if(event.key === 'CapsLock') {
+
+    } else {
+        inputArea.value += event.key;
+    }   
+    
+
+   
 };
+document.onkeyup = (event) => {
+    document.querySelectorAll('.keyboard__button').forEach(el => {
+        el.classList.remove('keyboard__button--mouseover');
+        el.classList.remove('keyboard__button--pressed');
+        
+    });
+    console.log(event.key); 
+    if(event.key === 'Shift') {
+        fillButtons(arrEng);
+    } else if(event.key === 'Backspace') {
+
+    } else if(event.key === 'Delete') {
+
+    } else if(event.key === 'Alt') {
+
+    } else if(event.key === 'Control') {
+
+    } else if(event.key === 'Enter') {
+
+    } else if(event.key === 'Tab') {
+
+    } else if(event.key === 'CapsLock') {
+
+    } else {
+        inputArea.value += event.key;
+    }    
+      
+};
+/*document.onkeypress = (event) =>  console.log(event.keyCode);
+/*document.addEventListener('keyDown', (event) => {
+    console.log(event.keyCode);
+})*/
+//ShiftDown
+/*document.onkeydown = (event) => {
+   //    if (event.)
+};*/
+//ShiftUp
 keyboard.addEventListener('mouseover',(event) => {
     if(event.target.classList.contains('keyboard__button')) {
          event.target.classList.add('keyboard__button--mouseover');
@@ -74,7 +147,7 @@ keyboard.addEventListener('mousedown',(event) => {
     if(event.target.classList.contains('keyboard__button')) {
          event.target.classList.add('keyboard__button--pressed');
     } 
-    if(event.target.tagName == "SPAN" )   {
+    if(event.target.tagName == "SPAN" ){
         event.target.parentElement.classList.add('keyboard__button--pressed');
     }
     inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
