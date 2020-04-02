@@ -216,8 +216,25 @@ keyboard.addEventListener('mousedown',(event) => {
         fillButtons();
     } else if(event.target.innerText === '') {
         inputArea.value += ' ';
-    } else {
-        if(document.querySelector('.keyboard__button--pressed>span')) {
+    } else if(event.target.innerText === 'Ctrl') {
+        
+    } else if(event.target.innerText === 'Alt') {
+        
+    } else if(event.target.innerText === 'Tab') {
+        
+    } else if(event.target.innerText === 'Delete') {
+        
+    } else if(event.target.innerText === '↑') {
+        
+    } else if(event.target.innerText === '↓') {
+        
+    } else if(event.target.innerText === '←') {
+        
+    } else if(event.target.innerText === '→') {
+        
+    } else if(event.target.innerText === 'Win') {
+        
+    } else { if(document.querySelector('.keyboard__button--pressed>span')) {
             inputArea.value += document.querySelector('.keyboard__button--pressed>span').innerText; 
         }
         
