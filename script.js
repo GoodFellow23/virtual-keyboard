@@ -113,6 +113,8 @@ document.onkeydown = (event) => {
 
     } else if(event.key === 'Meta') {
 
+    } else if(event.key === 'Control') {
+
     } else if(event.key === ' ') {
         inputArea.value += ' ';
     } else if(event.key === 'Enter') {
