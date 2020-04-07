@@ -1,4 +1,3 @@
-
 //input
 let inputBody =document.createElement('div');
 let inputArea = document.createElement('textarea');
