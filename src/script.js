@@ -1,4 +1,5 @@
-  // input
+/* eslint-disable no-empty */
+// input
 const inputBody = document.createElement('div');
 const inputArea = document.createElement('textarea');
 const changeLanText = document.createElement('div');
@@ -131,9 +132,7 @@ document.onkeydown = (event) => {
   } else if (event.key === 'ArrowRight') {
 
   } else {
-
     inputArea.value += event.key;
-
   }
 };
 document.onkeyup = (event) => {
